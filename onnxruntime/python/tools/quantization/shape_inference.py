@@ -135,8 +135,8 @@ def quant_pre_process(
             onnx.shape_inference.infer_shapes_path(input_model_path, inferred_model_path)
             model = onnx.load(inferred_model_path)
 
-    if model is None:
-        model = onnx.load(input_model_path)
+        if model is None:
+            model = onnx.load(input_model_path)
 
     add_pre_process_metadata(model)
 
